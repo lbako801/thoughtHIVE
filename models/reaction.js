@@ -34,4 +34,6 @@ const dateFormat = (createdAt) => {
   return new Date(createdAt).toLocaleString();
 };
 
-module.exports = ReactionSchema;
+const Reaction = mongoose.model('Reaction', ReactionSchema);
+
+module.exports = Reaction;
