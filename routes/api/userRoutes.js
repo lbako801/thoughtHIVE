@@ -20,8 +20,8 @@ router.get('/:id', getUserById);
 // Create a new user
 router.post('/', createUser);
 
-// // Update a user by its _id
-// router.put('/:id', updateUser);
+// Update a user by its _id
+router.put('/:id', updateUser);
 
 // // Remove a user by its _id
 router.delete('/:id', deleteUser);
