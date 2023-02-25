@@ -1,4 +1,13 @@
 {
+  "name": "thought-hive",
+  "version": "1.0.0",
+  "description": "A simple social media API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seeds/seeds.js",
+    "dev": "nodemon server.js"
+  },
   "dependencies": {
     "express": "^4.18.2",
     "moment": "^2.29.4",

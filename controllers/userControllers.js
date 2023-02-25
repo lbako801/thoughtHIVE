@@ -33,4 +33,5 @@ const createUser = async (req, res) => {
     }
 }
 
+
 module.exports = { getAllUsers, getUserById,createUser };
