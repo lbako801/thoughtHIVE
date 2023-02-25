@@ -38,6 +38,12 @@ Once you have Node.js and MongoDB installed, you can follow these steps to run t
 # API Demo
 For a short demo of the thoughtHIVE API, watch [this video.]()
 
+# Author
+thoughtHIVE API was developed by [Loren Bako (me)](https://github.com/lbako801). 
+ 
+If you have any questions or feedback, please contact me at loren@lorenbako.com or visit my website at [lorenbako.com](https://lorenbako.com). 
+
+Thank you for using thoughtHIVE🐝!
 # Contributing
 If you'd like to contribute to the ThoughtHive API, feel free to open a pull request with your changes. Please make sure to include tests for any new functionality, and make sure all existing tests pass before submitting your changes.
 
