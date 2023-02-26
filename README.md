@@ -38,7 +38,7 @@ To get started with the thoughtHive API, you'll need to have Node.js and MongoDB
     DELETE /api/friends/:friendId - Delete a friend by ID
     
 # API Demo
-For a short demo of the thoughtHIVE API, watch [this video.]()
+For a short demo of the thoughtHIVE API, watch [this video.](https://drive.google.com/file/d/1G0ex2W_10jV0RCUL30SUvqEnwMFZGv8T/view)
 
 # Author
 thoughtHIVE API was developed by [Loren Bako (me)](https://github.com/lbako801). 
