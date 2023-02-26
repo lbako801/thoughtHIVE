@@ -19,7 +19,7 @@ const {
 } = require("./thoughtControllers");
 
 // Import the controllers for the reactions
-const { createReaction, deleteReaction } = require("./reactionControllers");
+const { createReaction, deleteReaction, getReaction } = require("./reactionControllers");
 
 // Export all controller functions to be used elsewhere
 module.exports = {
@@ -37,4 +37,5 @@ module.exports = {
   deleteThought,
   createReaction,
   deleteReaction,
+  getReaction
 };
