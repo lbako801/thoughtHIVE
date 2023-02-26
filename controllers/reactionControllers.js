@@ -24,8 +24,9 @@ const createReaction = async (req, res) => {
 const deleteReaction = async (req, res) => {
   try {
     const { thoughtId, reactionId } = req.params;
-    const thought = await Thought.findByIdAndUpdate(
-      thoughtId,
+
+    const thought = await Thought.findOneAndUpdate(
+      { _id: thoughtId, reactions: reactionId },
       { $pull: { reactions: reactionId } },
       { new: true }
     );
@@ -43,20 +44,21 @@ const deleteReaction = async (req, res) => {
   }
 };
 
-const getReactions = async (req, res) => {
-    try {
-      const thought = await Thought.findById(req.params.thoughtId).populate("reactions");
-  
-      if (!thought) {
-        return res.status(404).json({ message: "Thought not found" });
-      }
-  
-      res.json(thought.reactions);
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: "Server error" });
-    }
-  };
-   
+const getReaction = async (req, res) => {
+  try {
+    const thought = await Thought.findById(req.params.thoughtId).populate(
+      "reactions"
+    );
 
-module.exports = { createReaction,deleteReaction, getReaction};
+    if (!thought) {
+      return res.status(404).json({ message: "Thought not found" });
+    }
+
+    res.json(thought.reactions);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+module.exports = { createReaction, deleteReaction, getReaction };

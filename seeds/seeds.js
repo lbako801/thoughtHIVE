@@ -92,38 +92,47 @@ const reactionData = [
   {
     reactionBody: 'I love it!',
     username: 'Alice',
+    reactionId: new mongoose.Types.ObjectId(),
   },
   {
     reactionBody: 'Cool!',
     username: 'Bob',
+    reactionId: new mongoose.Types.ObjectId(),
   },
   {
     reactionBody: 'Science rules!',
     username: 'MarieCurie',
+    reactionId: new mongoose.Types.ObjectId(),
   },
   {
     reactionBody: 'Yes, please!',
     username: 'AdaLovelace',
+    reactionId: new mongoose.Types.ObjectId(),
   },
   {
     reactionBody: 'We can do it!',
     username: 'RosieTheRiveter',
+    reactionId: new mongoose.Types.ObjectId(),
   },
   {
     reactionBody: 'Wingardium Leviosa!',
     username: 'HermioneGranger',
+    reactionId: new mongoose.Types.ObjectId(),
   },
   {
     reactionBody: 'Dracarys!',
     username: 'DaenerysTargaryen',
+    reactionId: new mongoose.Types.ObjectId(),
   },
   {
     reactionBody: 'Fortune and glory, kid. Fortune and glory.',
     username: 'IndianaJones',
+    reactionId: new mongoose.Types.ObjectId(),
   },
   {
     reactionBody: 'May the Force be with you.',
     username: 'LukeSkywalker',
+    reactionId: new mongoose.Types.ObjectId(),
   },
 ];
 
@@ -136,7 +145,9 @@ const seedDatabase = async () => {
     const thoughts = await Thought.create(thoughtData);
 
     // create the reactions with a new ObjectId
-    const reactions = await Reaction.create(reactionData.map((reaction) => ({ ...reaction, reactionId: new mongoose.Types.ObjectId() })));
+    const reactions = await Reaction.create(
+      reactionData.map((reaction) => ({ ...reaction, reactionId: new mongoose.Types.ObjectId() }))
+    );
 
     for (const thought of thoughts) {
       const user = users.find((u) => u.username === thought.username);
