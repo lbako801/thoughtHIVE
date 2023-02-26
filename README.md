@@ -30,8 +30,8 @@ To get started with the thoughtHive API, you'll need to have Node.js and MongoDB
     POST /api/reactions - Create a new reaction
     DELETE /api/reactions/:reactionId - Delete a specific reaction by ID
 ## Friends
-    POST /api/friends/:friendId - Add a friend by ID
-    DELETE /api/friends/:friendId - Delete a friend by ID
+    POST /api/users/:userid/friends/:friendId - Add a friend by ID
+    DELETE /api/users/:userid/friends/:friendId - Delete a friend by ID
     
 # API Demo
 For a short demo of the thoughtHIVE API, watch [this video.](https://drive.google.com/file/d/1G0ex2W_10jV0RCUL30SUvqEnwMFZGv8T/view)
