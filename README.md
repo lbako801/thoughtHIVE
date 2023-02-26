@@ -7,12 +7,8 @@ To get started with the thoughtHive API, you'll need to have Node.js and MongoDB
 ***Once you have Node.js and MongoDB installed, you can follow these steps to run the API locally:***  
 
   1. Clone this repository to your local machine.
-  2. Run npm install to install the necessary dependencies.
-  3. Create a new .env file in the root directory of the project with the following variables:  
-
-    MONGODB_URI=<your MongoDB connection string>
-    JWT_SECRET=<your secret key for JSON Web Tokens>
-
+  2. Run ```npm install``` to install the necessary dependencies.
+  3. Run ```npm seed``` to seed the database if you'd like.
   4. Run ```npm start``` to start the server. By default, the API will be hosted on ```http://localhost:3001```.
   
   # API Endpoints
