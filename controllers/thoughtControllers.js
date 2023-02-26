@@ -38,7 +38,7 @@ const createThought = async (req, res) => {
       { new: true }
     );
 
-    res.json(thoughtData);
+      res.json({ message: "Thought created!" });
   } catch (err) {
     console.log(err);
     res.status(400).json(err);
@@ -67,7 +67,7 @@ const updateThought = async (req, res) => {
         { new: true }
       );
   
-      res.json(thoughtData);
+      res.json({ message: "Thought updated successfully!" });
     } catch (err) {
       console.log(err);
       res.status(400).json(err);
@@ -89,7 +89,7 @@ const deleteThought = async (req, res) => {
       { $pull: { thoughts: thoughtData._id } }
     );
 
-    res.json(thoughtData);
+    res.json({message: "Thought deleted successfully!"});
   } catch (err) {
     console.log(err);
     res.status(400).json(err);

@@ -20,7 +20,7 @@ router.post("/", createThought);
 // Update a thought by its _id
 router.put("/:id", updateThought);
 
-// // Remove a thought by its _id
-// router.delete("/:id", deleteThought);
+// Remove a thought by its _id
+router.delete("/:id", deleteThought);
 
 module.exports = router;
