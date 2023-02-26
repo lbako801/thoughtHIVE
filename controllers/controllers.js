@@ -3,7 +3,9 @@ const {
   getUserById,
   createUser,
   updateUser,
-  deleteUser,
+    deleteUser,
+    addFriend,
+  removeFriend,
 } = require("./userControllers");
 
 module.exports = {
@@ -11,5 +13,7 @@ module.exports = {
   getUserById,
   createUser,
   updateUser,
-  deleteUser,
+    deleteUser,
+    addFriend,
+  removeFriend
 };
