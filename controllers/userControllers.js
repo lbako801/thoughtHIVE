@@ -26,6 +26,7 @@ const getUserById = async (req, res) => {
   }
 };
 
+// Create a user
 const createUser = async (req, res) => {
   try {
     const user = await User.create(req.body);
@@ -35,6 +36,7 @@ const createUser = async (req, res) => {
   }
 };
 
+// Update a user by ID
 const updateUser = async (req, res) => {
   try {
     const user = await User.findByIdAndUpdate(req.params.id, req.body, {
@@ -59,6 +61,7 @@ const updateUser = async (req, res) => {
   }
 };
 
+// Delete a user by ID
 const deleteUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -81,6 +84,7 @@ const deleteUser = async (req, res) => {
   }
 };
 
+// Add a friend
 const addFriend = async (req, res) => {
   try {
     // Find the user and friend by their ids
@@ -112,9 +116,10 @@ const addFriend = async (req, res) => {
   }
 };
 
+// Remove a friend
 const removeFriend = async (req, res) => {
   const { userId, friendId } = req.params;
-
+  
   try {
     const user = await User.findByIdAndUpdate(
       userId,
