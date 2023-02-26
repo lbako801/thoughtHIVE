@@ -1,3 +1,4 @@
+// Import the controllers for the users
 const {
   getAllUsers,
   getUserById,
@@ -8,14 +9,16 @@ const {
   removeFriend,
 } = require("./userControllers");
 
+// Import the controllers for the thoughts
 const {
   getAllThoughts,
   getThoughtById,
   createThought,
-//   updateThought,
-//   deleteThought,
+  updateThought,
+  deleteThought,
 } = require("./thoughtControllers");
 
+// Export all controller functions to be used elsewhere
 module.exports = {
   getAllUsers,
   getUserById,
@@ -23,7 +26,10 @@ module.exports = {
   updateUser,
   deleteUser,
   addFriend,
-    removeFriend,
-    getAllThoughts,
+  removeFriend,
+  getAllThoughts,
   getThoughtById,
+  createThought,
+  updateThought,
+  deleteThought,
 };

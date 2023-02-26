@@ -29,6 +29,15 @@ const getThoughtById = async (req, res) => {
 const createThought = async (req, res) => {
   try {
     const thoughtData = await Thought.create(req.body);
+    const userId = thoughtData.userId;
+
+    // Add the thought to the user's thoughts array
+    const userData = await User.findByIdAndUpdate(
+      userId,
+      { $push: { thoughts: thoughtData._id } },
+      { new: true }
+    );
+
     res.json(thoughtData);
   } catch (err) {
     console.log(err);
@@ -36,10 +45,61 @@ const createThought = async (req, res) => {
   }
 };
 
+// Update a thought by id
+const updateThought = async (req, res) => {
+    try {
+      const thoughtData = await Thought.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true }
+      );
+      if (!thoughtData) {
+        return res.status(404).json({ message: "No thought with this id!" });
+      }
+  
+      // Retrieve the thought's user ID
+      const userId = thoughtData.userId;
+  
+      // Push the thought ID to the user's thoughts array
+      const userData = await User.findByIdAndUpdate(
+        userId,
+        { $addToSet: { thoughts: thoughtData._id } },
+        { new: true }
+      );
+  
+      res.json(thoughtData);
+    } catch (err) {
+      console.log(err);
+      res.status(400).json(err);
+    }
+  };
+  
+
+// Delete a thought by id
+const deleteThought = async (req, res) => {
+  try {
+    const thoughtData = await Thought.findByIdAndDelete(req.params.id);
+    if (!thoughtData) {
+      return res.status(404).json({ message: "No thought with this id!" });
+    }
+
+    // Remove the thought from the user's thoughts array
+    await User.updateOne(
+      { _id: thoughtData.userId },
+      { $pull: { thoughts: thoughtData._id } }
+    );
+
+    res.json(thoughtData);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+};
 
 module.exports = {
   getAllThoughts,
-    getThoughtById,
-    createThought,
-  
+  getThoughtById,
+  createThought,
+  updateThought,
+  deleteThought,
 };
